@@ -392,16 +392,13 @@
 
           <!-- ====== Login Form ====== -->
             <form method="post" action="<?= base_url('/login') ?>">
-              <?= csrf_field(); ?>
               <div class="form-floating mb-3">
                 <input name="mail" type="email" class="form-control ps-4" id="email1" placeholder="Votre adresse email" required>
                 <label for="floatingEmail" class="ms-3">Votre adresse email</label>
-                <span class="text-danger mt-3"><?= isset($validation) ? display_error($validation, 'mail'): '' ?></span>
               </div>
               <div class="form-floating mb-4">
                 <input name="password" type="password" class="form-control ps-4" id="password1" placeholder="Votre mot de passe" required>
                 <label for="floatingPassword" class="ms-3">Votre mot de passe</label>
-                <span class="text-danger mt-3"><?= isset($validation) ? display_error($validation, 'password'): '' ?></span>
               </div>
               <div class="form-group mb-2">
                 <button type="submit" class="form-control btn btn-lg">Connexion</button>
