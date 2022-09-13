@@ -372,7 +372,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 87vh;
+  height: 100vh;
   background: url("../../img/https _cdn.cnn.com_cnnnext_dam_assets_220524162058-graduates-stock.jpeg") top center;
   background-size: cover;
   position: relative;
@@ -1403,14 +1403,27 @@ section {
 #loginModal .modal-dialog .modal-content input[type=password]{
   border-radius: 3rem;
 }
-#loginModal .modal-dialog .modal-content button[type=submit]{
+#loginModal .modal-dialog .modal-content #btn-conn{
   border-radius: 3rem;
   background-color: #5fcf80;
   color: #fff;
 }
-#loginModal .modal-dialog .modal-content button[type=submit]:hover{
+#loginModal .modal-dialog .modal-content #btn-conn:hover{
   background-color: #3ac162;
   transition: .3s;
+}
+@media screen and (max-width: 768px) {
+  #loginModal .modal-dialog .modal-content,
+  #logoutModal .modal-dialog .modal-content{
+    border-radius: .5rem;
+  }
+  #loginModal .modal-dialog .modal-content #btn-conn{
+    border-radius: .5rem;
+  }
+  #loginModal .modal-dialog .modal-content input[type=email],
+  #loginModal .modal-dialog .modal-content input[type=password]{
+    border-radius: .5rem;
+  }
 }
 
 /* ----------------------------------------------------------------------- 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -70,7 +70,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex justify-content-center align-items-center shadow">
+  <section id="hero" class="d-flex justify-content-center align-items-center shadow mb-0">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>OWL - Online Web Learning,<br>Apprendre pour son avenir</h1>
       <h2>Le site web de formation en ligne de l'université OWL</h2>
@@ -81,7 +81,7 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about mt-5">
+    <section id="about" class="about">
       <div class="container" data-aos="fade-up">
         <div class="row text-center mt-5 section-title">
           <h1>
@@ -390,10 +390,13 @@
           </div>
           <div class="d-flex flex-column text-center">
 
-          <!-- ====== Login Form ====== -->
-            <form method="post" action="<?= base_url('/login') ?>">
+            <!-- ====== Login Form ====== -->
+            <form id="loginform" method="POST">
+              <div class="form-group mb-3">
+                <div class="form-control rounded-pill border border-danger text-danger" id="retour"></div>
+              </div>
               <div class="form-floating mb-3">
-                <input name="mail" type="email" class="form-control ps-4" id="email1" placeholder="Votre adresse email" required>
+                <input name="email" type="email" class="form-control ps-4" id="email1" placeholder="Votre adresse email" required>
                 <label for="floatingEmail" class="ms-3">Votre adresse email</label>
               </div>
               <div class="form-floating mb-4">
@@ -401,7 +404,16 @@
                 <label for="floatingPassword" class="ms-3">Votre mot de passe</label>
               </div>
               <div class="form-group mb-2">
-                <button type="submit" class="form-control btn btn-lg">Connexion</button>
+                <button class="form-control btn btn-lg" id="btn-conn">Connexion</button>
+              </div>
+              <div class="spinner-grow spinner-grow-sm text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <div class="spinner-grow spinner-grow-sm text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <div class="spinner-grow spinner-grow-sm text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
               </div>
             </form>
 
@@ -537,9 +549,68 @@
         text: 'Adresse mail ou mot de passe incorrect'
       })
     }
+    
+    $(document).ready(function() {
+      $("#retour").hide();
+      $(".spinner-grow").hide();
+
+      $("#btn-conn").click(function() {
+        $("#btn-conn").hide();
+        $(".spinner-grow").show();
+        var $mail = $("#email1").val().trim();
+        var $password = $("#password1").val();
+        var donnee = "email=" + $mail + "&password=" + $password;
+
+        $.ajax({
+          type: "POST",
+          // url: "../../application/controllers/EtudiantController::login",
+          url: "<?php echo site_url(); ?>/connexion",
+          data: donnee,
+          success: function(miverina) {
+            if ($mail == '' && $password == ''){
+              $(".spinner-grow").hide();
+              $("#btn-conn").show();
+              $("#password1").toggleClass("border border-danger");
+              $("#email1").toggleClass("border border-danger");
+              $("#retour").show().text("Veuillez remplir tous les champs");
+            } else if ($password == '' && $mail != ''){
+              $(".spinner-grow").hide();
+              $("#btn-conn").show();
+              $("#email1").removeClass("border border-danger");
+              $("#password1").toggleClass("border border-danger");
+              $("#retour").show().text("Veuillez remplir tous les champs");
+            } else if ($mail == '' && $password != ''){
+              $(".spinner-grow").hide();
+              $("#btn-conn").show();
+              $("#email1").toggleClass("border border-danger");
+              $("#password1").removeClass("border border-danger");
+              $("#retour").show().text("Veuillez remplir tous les champs");
+            } else if (miverina == "failed") {
+              $(".spinner-grow").hide();
+              $("#btn-conn").show();
+              $("#email1").removeClass("border border-danger");
+              $("#password1").toggleClass("border border-danger");
+              $("#retour").show().text("Mot de passe incorrecte");
+            } else if (miverina == "success") {
+              location.href = "<?= base_url() ?>";
+            } else {
+              $(".spinner-grow").hide();
+              $("#btn-conn").show();
+              $("#email1").toggleClass("border border-danger");
+              $("#password1").removeClass("border border-danger");
+              $("#retour").show().text("Veuillez vérifier votre adresse email");
+            }
+          },
+          error: function() {
+            $(".spinner-grow").hide();
+            $("#btn-conn").show();
+            $("#retour").show().text("Erreur de connexion au serveur");
+          },
+        });
+        return false;
+      });
+    });
   </script>
-
-
 </body>
 
 </html>
