@@ -1,71 +1,59 @@
-###################
-What is CodeIgniter
-###################
+# Online Formation Website for Private University - CodeIgniter 3 Project
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Welcome to the README documentation for the Online Formation Website developed using CodeIgniter 3. This project serves as a comprehensive platform for a private university to manage and deliver online courses and educational content to students. This document provides an overview of the project's features, installation instructions, and usage guidelines.
 
-*******************
-Release Information
-*******************
+## Table of Contents
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [License](#license)
 
-**************************
-Changelog and New Features
-**************************
+## Project Overview
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+The Online Formation Website is designed to cater to the needs of a private university by providing a user-friendly online platform for managing and delivering academic content to students. The system facilitates course creation, enrollment, content delivery, assessment, and communication between instructors and students.
 
-*******************
-Server Requirements
-*******************
+## Features
 
-PHP version 5.6 or newer is recommended.
+- Showcase Website that allow visitors to check the overview of the university
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+- User Roles: The system supports 2 user roles by login, including administrators and students, each with specific privileges and access levels. 
 
-************
-Installation
-************
+- Course Management: Administrators can create and manage courses, upload course materials, and set up assessments.
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+- Student Enrollment: Students can browse available courses, enroll in courses of their choice, and track their progress.
 
-*******
-License
-*******
+- Content Delivery: Administrators can upload various types of course content, such as documents, videos, and quizzes.
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+- Assessment: Administrators can create quizzes and assignments for students to complete online, and students can submit their work through the platform.
 
-*********
-Resources
-*********
+## Installation
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+Follow these steps to set up the project on your local development environment:
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+1. **Prerequisites**: Make sure you have PHP, MySQL, and a web server (such as Apache) installed on your machine.
 
-***************
-Acknowledgement
-***************
+2. **Clone the Repository**: Clone this repository to your local machine using `git clone https://github.com/your-username/online-formation.git`.
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+3. **Configure Database**: Create a new MySQL database and import the provided SQL dump (`database.sql`) to set up the necessary tables.
+
+4. **Configuration**: Edit the `application/config/config.php` file to set the base URL of your application.
+
+5. **Database Configuration**: Edit the `application/config/database.php` file and enter your database credentials.
+
+6. **Email Configuration**: If the system requires email functionality, edit the `application/config/email.php` file and enter your email settings.
+
+7. **Run the Application**: Access the project through your web browser and start using the Online Formation Website.
+
+## Usage
+
+1. **Administrator**: Log in as an administrator to manage users, courses, and overall system settings.
+
+3. **Student**: Log in as a student to browse courses, enroll, access course materials, and submit assignments.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
