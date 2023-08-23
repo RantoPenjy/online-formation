@@ -34,7 +34,7 @@ Follow these steps to set up the project on your local development environment:
 
 1. **Prerequisites**: Make sure you have PHP, MySQL, and a web server (such as Apache) installed on your machine.
 
-2. **Clone the Repository**: Clone this repository to your local machine using `git clone https://github.com/your-username/online-formation.git`.
+2. **Clone the Repository**: Clone this repository to your local machine using `git clone https://github.com/RantoPenjy/online-formation.git`.
 
 3. **Configure Database**: Create a new MySQL database and import the provided SQL dump (`database.sql`) to set up the necessary tables.
 
