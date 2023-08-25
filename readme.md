@@ -36,7 +36,7 @@ Follow these steps to set up the project on your local development environment:
 
 2. **Clone the Repository**: Clone this repository to your local machine using `git clone https://github.com/RantoPenjy/online-formation.git`.
 
-3. **Configure Database**: Create a new MySQL database and import the provided SQL dump (`database.sql`) to set up the necessary tables.
+3. **Configure Database**: Create a new MySQL database and import the provided SQL dump (`formation.sql`) to set up the necessary tables.
 
 4. **Configuration**: Edit the `application/config/config.php` file to set the base URL of your application.
 
